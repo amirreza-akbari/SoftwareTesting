@@ -1,4 +1,4 @@
-#  Software Testing  - A Software Quiz Application
+# Software Testing - A Software Quiz Application
 
 ## Project Description
 
@@ -11,6 +11,43 @@ This application is a quiz about software. It collects the user's name, surname,
 - **docs/**: Project documentation and installation guides.
 - **assets/**: Images and graphical resources.
 
+## Database
+
+The project uses two tables in a MySQL database: **`users`** and **`scores`**.
+
+### `users` Table
+
+This table stores the registration information of users:
+
+| Column    | Data Type    | Description                          |
+|-----------|--------------|--------------------------------------|
+| `id`      | int(11)      | Auto-incremented ID                  |
+| `name`    | varchar(50)  | User's first name                    |
+| `surname` | varchar(50)  | User's surname                       |
+| `email`   | varchar(100) | User's email (unique)                |
+
+### `scores` Table
+
+This table stores the quiz results of the users:
+
+| Column     | Data Type    | Description                          |
+|------------|--------------|--------------------------------------|
+| `id`       | int(11)      | Auto-incremented ID                  |
+| `name`     | varchar(255) | User's first name                    |
+| `surname`  | varchar(255) | User's surname                       |
+| `email`    | varchar(255) | User's email (unique)                |
+| `score`    | int(11)      | User's quiz score                    |
+| `created_at` | timestamp  | Timestamp when the score was saved  |
+
+### Database Setup
+
+1. **Import the database**: 
+   - Use the provided SQL dump file to import the database structure into your MySQL server.
+   - The tables `users` and `scores` are created with necessary columns, including primary keys and unique indexes on the `email` column to prevent duplicates.
+
+2. **Configure the database connection**: 
+   - Update the database connection details in the `server/db_config.php` file to match your MySQL server settings.
+
 ## Installation and Setup
 
 ### To run the Android app:
@@ -20,8 +57,9 @@ This application is a quiz about software. It collects the user's name, surname,
 
 ### To set up the server:
 1. Install PHP and MySQL.
-2. Configure the database connection in `server/db_config.php`.
-3. Upload the PHP scripts to your server.
+2. Import the SQL dump provided to create the necessary database and tables.
+3. Configure the database connection in `server/db_config.php`.
+4. Upload the PHP scripts to your server.
 
 ## Usage
 
@@ -32,4 +70,3 @@ This application is a quiz about software. It collects the user's name, surname,
 ## License
 
 [Insert your license here]
-
