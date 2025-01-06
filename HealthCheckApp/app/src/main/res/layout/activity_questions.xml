@@ -1,0 +1,80 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:padding="20dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/questionCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/tvQuestionNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/question_number"
+                android:textSize="18sp"
+                android:textColor="#757575"
+                android:layout_gravity="center_horizontal"
+                android:paddingBottom="10dp" />
+
+            <TextView
+                android:id="@+id/tvQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/question_1"
+                android:textSize="20sp"
+                android:textColor="#333333"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingBottom="20dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnYes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/yes_button"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:layout_marginBottom="16dp"
+                android:padding="16dp"
+                app:cornerRadius="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/no_button"
+                android:backgroundTint="#F44336"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:padding="16dp"
+                app:cornerRadius="8dp" />
+
+            <TextView
+                android:id="@+id/tvTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="02:00"
+                android:textSize="24sp"
+                android:textColor="#333333"
+                android:gravity="center"
+                android:layout_below="@id/btnNo"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
