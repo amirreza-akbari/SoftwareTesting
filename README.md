@@ -17,27 +17,27 @@ The project uses two tables in a MySQL database: **users** and **scores**.
 
 ### users Table 📋
 
-This table stores user registration information:
+This table stores user registration information.
 
-| Column  | Data Type   | Description                           |
-|---------|-------------|---------------------------------------|
-| id      | int(11)     | Auto-incremented ID                   |
-| name    | varchar(50) | User's first name                     |
-| surname | varchar(50) | User's surname                        |
-| email   | varchar(100)| User's email (unique)                 |
+| **Column**  | **Data Type** | **Description**                       |
+|-------------|---------------|---------------------------------------|
+| `id`        | `int(11)`     | Auto-incremented unique ID            |
+| `name`      | `varchar(50)` | User's first name                     |
+| `surname`   | `varchar(50)` | User's surname                        |
+| `email`     | `varchar(100)`| User's email (must be unique)         |
 
 ### scores Table 📊
 
-This table stores the quiz results of users:
+This table stores the quiz results of users.
 
-| Column     | Data Type   | Description                             |
-|------------|-------------|-----------------------------------------|
-| id         | int(11)     | Auto-incremented ID                     |
-| name       | varchar(255)| User's first name                       |
-| surname    | varchar(255)| User's surname                          |
-| email      | varchar(255)| User's email (unique)                   |
-| score      | int(11)     | User's quiz score                       |
-| created_at | timestamp   | Timestamp when the score was created    |
+| **Column**     | **Data Type**   | **Description**                       |
+|----------------|-----------------|---------------------------------------|
+| `id`           | `int(11)`       | Auto-incremented unique ID            |
+| `name`         | `varchar(255)`  | User's first name                     |
+| `surname`      | `varchar(255)`  | User's surname                        |
+| `email`        | `varchar(255)`  | User's email (must be unique)         |
+| `score`        | `int(11)`       | User's quiz score (calculated from answers) |
+| `created_at`   | `timestamp`     | Timestamp of when the score was recorded |
 
 ## Database Setup 🧰
 
@@ -74,3 +74,4 @@ This table stores the quiz results of users:
 ## License 🔒
 
 [Insert your license here]
+
