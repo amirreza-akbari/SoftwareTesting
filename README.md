@@ -4,12 +4,6 @@
 
 This application is a software-related quiz that collects the user's first name, surname, and email. Once the information is provided, the user proceeds to the next page, where they answer ten specialized questions related to software. Each question is worth 2 points, and the quiz has a time limit. The scores are calculated and stored in a MySQL database. The results are displayed on the third page.
 
-## Project Structure 🗂
-
-- **app/**: All files related to the Android application.
-- **server/**: PHP scripts for saving and retrieving data from the database.
-- **docs/**: Project documentation and installation guides.
-- **assets/**: Images and graphical resources.
 
 ## Database 🛠
 
@@ -70,8 +64,4 @@ This table stores the quiz results of users.
 - **Page 1**: Enter your name, surname, and email.
 - **Page 2**: Answer the software-related questions (10 questions, each worth 2 points). Your score will be calculated and saved in the database.
 - **Page 3**: View your name, surname, email, and score.
-
-## License 🔒
-
-[Insert your license here]
 
