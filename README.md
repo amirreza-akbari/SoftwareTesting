@@ -1,4 +1,4 @@
-# **Software Testing - Software Quiz Application** 🎓  
+# **Software Testing - Software Quiz Application** 🎓   
 
 ## **📚 Project Overview**  
 This application is a **software-related quiz** where users can **register with their email**, take a **10-question quiz**, and track their progress. Each question is worth **2 points**, and the quiz is **time-limited**. After completing the quiz, users are redirected to the **results page**, where they can view their **score and status**.  
