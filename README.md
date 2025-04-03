@@ -1,71 +1,78 @@
-# Software Testing - Software Quiz Application
+# **Software Testing - Software Quiz Application** 🎓  
 
-## Project Description 📚
-This application is a software-related quiz where users can register with their email and take a quiz consisting of ten software-related questions. Each question is worth 2 points, and the quiz has a time limit. After completing the quiz, users are directed to the results page where they can view their score and status. Additionally, users can print their results, download them as a PDF, and log in with their email and password to review their quiz history. The application also features a leaderboard ranking scores from highest to lowest, supports dark and light mode, and offers bilingual support for English and Persian.
+## **📚 Project Overview**  
+This application is a **software-related quiz** where users can **register with their email**, take a **10-question quiz**, and track their progress. Each question is worth **2 points**, and the quiz is **time-limited**. After completing the quiz, users are redirected to the **results page**, where they can view their **score and status**.  
 
-## Database 🧐
-The project utilizes multiple databases for different functionalities:
-1. **MySQL** - Stores user information and quiz scores.
-2. **SharedPreferences & SQLite** - Manages theme and language preferences.
+### **✨ Key Features:**  
+✅ **User Authentication:** Secure login & registration with email and password.  
+✅ **Engaging Quiz Experience:** 10 carefully curated **software-related questions** with a countdown timer.  
+✅ **Smart Result Tracking:** Users can **print**, **download as PDF**, and review past quiz attempts.  
+✅ **Leaderboard System:** Displays **top scores ranked from highest to lowest**.  
+✅ **Dark & Light Mode:** Users can switch between themes for **better visibility**.  
+✅ **Multi-Language Support:** English & Persian (**stored in SharedPreferences & SQLite**).  
 
-### users Table 👌
-This table stores user registration information.
+---
 
-| Column  | Data Type    | Description                      |
-|---------|-------------|----------------------------------|
-| id      | int(11)     | Auto-incremented unique ID      |
-| name    | varchar(50) | User's first name               |
-| surname | varchar(50) | User's surname                  |
-| email   | varchar(100)| User's email (must be unique)   |
-| password| varchar(255)| User's password (hashed)        |
+## **🗄 Database Structure**  
+The project uses **multiple databases** for **different functionalities**:  
+📌 **MySQL** → Stores user profiles & quiz scores.  
+📌 **SharedPreferences & SQLite** → Manages theme & language preferences.  
 
-### scores Table 📊
-This table stores users' quiz results.
+### **👥 `users` Table (User Information)**  
+This table stores **user registration details**.
+
+| Column    | Data Type    | Description                           |
+|-----------|-------------|---------------------------------------|
+| id        | int(11)     | Auto-incremented unique ID           |
+| name      | varchar(50) | User's first name                    |
+| surname   | varchar(50) | User's surname                       |
+| email     | varchar(100)| User's email (**must be unique**)    |
+| password  | varchar(255)| User's password (**hashed**)         |
+
+### **📊 `scores` Table (Quiz Results)**  
+Stores each user’s **quiz score and timestamp**.
 
 | Column     | Data Type    | Description                           |
 |------------|-------------|---------------------------------------|
 | id         | int(11)     | Auto-incremented unique ID           |
 | name       | varchar(255)| User's first name                    |
 | surname    | varchar(255)| User's surname                       |
-| email      | varchar(255)| User's email (must be unique)        |
+| email      | varchar(255)| User's email (**must be unique**)    |
 | score      | int(11)     | User's quiz score (calculated)       |
 | created_at | timestamp   | Timestamp of when the score was recorded |
 
-## Database Setup 🧪
-**Import the Database:**
-- Use the provided SQL dump file to create the database and tables in your MySQL server.
-- The `users` and `scores` tables will be created with the necessary columns, including primary keys and unique indexes for the email column.
+---
 
-**Database Connection Setup:**
-- Update the database connection details in `server/db_config.php` to match your MySQL server settings.
+## **🔧 Database Setup**  
+### **📥 Import the Database**  
+1️⃣ Use the **provided SQL dump file** to create the database and tables in your **MySQL server**.  
+2️⃣ The `users` and `scores` tables will be **automatically created** with primary keys and unique indexes.  
 
-## Installation and Setup 🚀
-### To Run the Android App:
-1. Clone the project from GitHub.
-2. Open the project files in Android Studio.
-3. Connect your Android device and run the project.
+### **⚙️ Configure Database Connection**  
+1️⃣ Open `server/db_config.php`.  
+2️⃣ Update the **database connection settings** to match your MySQL server.  
 
-### To Set Up the Server:
-1. Install PHP and MySQL on your server.
-2. Import the provided SQL dump to create the database and tables.
-3. Update the database connection in `server/db_config.php`.
-4. Upload the PHP scripts to your server.
+---
 
-## Features 🚀
-- **User Authentication:** Register and log in with an email and password.
-- **Quiz System:** 10 software-related questions, each worth 2 points, with a countdown timer.
-- **Result Page:** Displays user’s name, surname, email, and score.
-- **PDF Download & Print:** Users can download their results as a PDF and print them.
-- **Leaderboard:** Shows top scores ranked from highest to lowest.
-- **Dark Mode & Light Mode:** Users can switch between themes.
-- **Multi-Language Support:** English and Persian (stored in `SharedPreferences` or `SQLite`).
+## **🚀 Installation & Setup**  
+### **📱 Running the Android App**  
+1️⃣ Clone the **GitHub repository**.  
+2️⃣ Open the project in **Android Studio**.  
+3️⃣ Connect your **Android device** or use an **emulator** to run the app.  
 
-## Usage 📲
-1. **Page 1:** Register/Login with name, surname, email, and password.
-2. **Page 2:** Answer 10 software-related questions within the time limit (2 points per question).
-3. **Page 3:** View name, surname, email, score, and status (pass/fail).
-4. **Leaderboard:** View top scores from highest to lowest.
-5. **Settings:** Change theme (Dark/Light) and language (English/Persian).
+### **🌐 Setting Up the Server**  
+1️⃣ Install **PHP and MySQL** on your server.  
+2️⃣ Import the provided **SQL dump file** to create the database.  
+3️⃣ Update the database connection in **`server/db_config.php`**.  
+4️⃣ Upload the **PHP scripts** to your server.  
 
-This project is designed to provide an interactive and structured quiz experience with modern features. 🌟
+---
 
+## **🎯 How It Works**  
+🟢 **Step 1:** Register or log in using **name, surname, email, and password**.  
+🟢 **Step 2:** Answer **10 software-related questions** before the **countdown timer ends**.  
+🟢 **Step 3:** View your **score, status (pass/fail), and quiz history**.  
+🟢 **Step 4:** Access the **Leaderboard** to see **top-ranked users**.  
+🟢 **Step 5:** Change **app theme (Dark/Light)** and switch between **English & Persian**.  
+
+This **interactive quiz application** delivers an **engaging experience** with a **modern UI** and **powerful tracking features**! 🚀🌟
