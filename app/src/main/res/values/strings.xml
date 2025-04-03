@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">آزمون افزار</string>
-    <string name="question_1">؟</string>
-    <string name="yes_button">بله</string>
-    <string name="no_button">خیر</string>
-    <string name="question_number">سوال %1$d از %2$d</string>
-</resources>
