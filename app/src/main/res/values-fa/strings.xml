@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">آزمون افزار</string>
+    <string name="mode">حالت شب🌙:</string>
+
+    <string name="name">نام:</string>
+    <string name="family">فامیل:</string>
+    <string name="email">ایمیل:</string>
+    <string name="password">رمزعبور:</string>
+    <string name="btn">ادامه </string>
+    <string name="copy">تمامی حقوق محفوظ است.</string>
+    <string name="title">لطفا فرم را پرکنید </string>
+
+
+
+    <string name="home">خانه </string>
+    <string name="register">ثبت نام </string>
+    <string name="login">ورود </string>
+    <string name="settings">تنظیمات </string>
+    <string name="logout">خروج </string>
+
+
+
+    <string name="question_1">سوال</string>
+    <string name="yes_button">بله </string>
+    <string name="no_button">خیر </string>
+    <string name="question_number">  سوال %1$d از %2$d</string>
+
+    <string name="back"> بازگشت</string>
+
+
+
+    <string name="topscore"> رتبه‌بندی کاربران بر اساس نمره</string>
+
+
+    <string name="result"> نتیجه:</string>
+
+
+    <string name="Language">انتخاب زبان 🌍:</string>
+
+</resources>

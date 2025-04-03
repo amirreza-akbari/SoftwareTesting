@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name"> </string>
+
+
+    <string name="open">Open Drawer</string>
+    <string name="close">Close Drawer</string>
+
+    <string name="mode"> </string>
+    <string name="copy"> </string>
+    <string name="title"> </string>
+    <string name="name"> </string>
+    <string name="family"> </string>
+    <string name="email"> </string>
+    <string name="password"> </string>
+    <string name="btn"> </string>
+
+    <string name="home"> </string>
+    <string name="register"> </string>
+    <string name="login"> </string>
+    <string name="settings"> </string>
+    <string name="logout"> </string>
+
+    <string name="question_number"> </string>
+    <string name="question_1"> </string>
+    <string name="yes_button"> </string>
+    <string name="no_button"> </string>
+
+
+
+    <string name="back"> </string>
+
+    <string name="topscore"> </string>
+
+    <string name="result"> </string>
+
+
+
+    <string-array name="language_options">
+        <item>🇮🇷فارسی</item>
+        <item>English🇬🇧</item>
+    </string-array>
+
+
+    <string name="Language"> </string>
+</resources>
