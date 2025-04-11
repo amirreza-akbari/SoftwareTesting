@@ -33,6 +33,11 @@
 
     <string name="result"> </string>
 
+    <string name="id"> </string>
+
+    <string name="tname"> </string>
+
+    <string name="score"> </string>
 
 
     <string-array name="language_options">

@@ -80,38 +80,28 @@ public class TopScoresActivity extends AppCompatActivity {
     }
 
     private void getHighScores() {
-        // Create a background thread to fetch high scores from the server
         new Thread(() -> {
             try {
-                // Server URL to fetch data
                 URL url = new URL("https://b.mrbackend.ir/top_users.php");
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setConnectTimeout(5000);  // Connection timeout
-                conn.setReadTimeout(5000);     // Read timeout
+                conn.setConnectTimeout(5000);
+                conn.setReadTimeout(5000);
                 conn.setRequestMethod("GET");
 
                 int responseCode = conn.getResponseCode();
-                if (responseCode != 200) {
-                    throw new Exception("Server error: " + responseCode);
-                }
+                if (responseCode != 200) throw new Exception("Server error: " + responseCode);
 
-                // Read the response from the server
                 BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
                 StringBuilder result = new StringBuilder();
                 String line;
-                while ((line = reader.readLine()) != null) {
-                    result.append(line);
-                }
+                while ((line = reader.readLine()) != null) result.append(line);
                 reader.close();
 
-                // Parse the response as a JSON array
                 JSONArray usersArray = new JSONArray(result.toString());
 
                 runOnUiThread(() -> {
-                    // Clear existing views from the score list
                     scoreListLayout.removeAllViews();
 
-                    // If no data is received, show a message
                     if (usersArray.length() == 0) {
                         TextView emptyText = new TextView(this);
                         emptyText.setText("No records found!");
@@ -121,46 +111,51 @@ public class TopScoresActivity extends AppCompatActivity {
                         return;
                     }
 
-                    // Loop through the JSON array and display the records
                     for (int i = 0; i < usersArray.length(); i++) {
                         try {
                             JSONObject user = usersArray.getJSONObject(i);
-                            String name = user.getString("name");    // Get name
-                            String surname = user.getString("surname");  // Get surname
-                            int score = user.optInt("score", 0);  // Get score (default to 0 if not found)
+                            String name = user.getString("name");
+                            String surname = user.getString("surname");
+                            int score = user.optInt("score", 0);
+                            String fullName = convertNameToLocal(name + " " + surname, LocaleManager.getLanguage(this));
 
-                            // Adjust name and surname based on the app's language
-                            String currentLang = LocaleManager.getLanguage(this);
-                            name = convertNameToLocal(name, currentLang);
-                            surname = convertNameToLocal(surname, currentLang);
-
-                            // Create a TextView to display each score record
-                            TextView textView = new TextView(this);
-                            textView.setText((i + 1) + ". " + name + " " + surname + " - " + (currentLang.equals("fa") ? "Score" : "Score") + ": " + score);
-                            textView.setTextSize(18);
-                            textView.setGravity(Gravity.CENTER);
-                            textView.setPadding(16, 8, 16, 8);
-
-                            // Change text color for rankings
-                            if (i == 0) {
-                                textView.setTextColor(Color.parseColor("#FFD700")); // Gold
-                            } else if (i == 1) {
-                                textView.setTextColor(Color.parseColor("#C0C0C0")); // Silver
-                            } else if (i == 2) {
-                                textView.setTextColor(Color.parseColor("#CD7F32")); // Bronze
-                            } else {
-                                textView.setTextColor(getResources().getColor(android.R.color.black));
-                            }
-
-                            // Set layout parameters and add to the layout
-                            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                            // Row (LinearLayout)
+                            LinearLayout row = new LinearLayout(this);
+                            row.setLayoutParams(new LinearLayout.LayoutParams(
                                     ViewGroup.LayoutParams.MATCH_PARENT,
-                                    ViewGroup.LayoutParams.WRAP_CONTENT
-                            );
-                            params.setMargins(8, 8, 8, 8);
-                            textView.setLayoutParams(params);
+                                    ViewGroup.LayoutParams.WRAP_CONTENT));
+                            row.setOrientation(LinearLayout.HORIZONTAL);
+                            row.setPadding(0, 16, 0, 16);
 
-                            scoreListLayout.addView(textView);
+                            // Column ID
+                            TextView tvId = new TextView(this);
+                            tvId.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
+                            tvId.setText(String.valueOf(i + 1));
+                            tvId.setGravity(Gravity.CENTER);
+                            tvId.setTextSize(16);
+
+                            // Column name
+                            TextView tvName = new TextView(this);
+                            tvName.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 2));
+                            tvName.setText(fullName);
+                            tvName.setGravity(Gravity.CENTER);
+                            tvName.setTextSize(16);
+
+                            // Column score
+                            TextView tvScore = new TextView(this);
+                            tvScore.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
+                            tvScore.setText(String.valueOf(score));
+                            tvScore.setGravity(Gravity.CENTER);
+                            tvScore.setTextSize(16);
+
+                            // Add columns to rows
+                            row.addView(tvId);
+                            row.addView(tvName);
+                            row.addView(tvScore);
+
+                            // Add row to main list
+                            scoreListLayout.addView(row);
+
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -169,12 +164,11 @@ public class TopScoresActivity extends AppCompatActivity {
 
             } catch (Exception e) {
                 e.printStackTrace();
-                runOnUiThread(() -> {
-                    Toast.makeText(this, "Server connection error: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                });
+                runOnUiThread(() -> Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show());
             }
         }).start();
     }
+
 
     // Method to convert names to the local language
     private String convertNameToLocal(String text, String currentLang) {

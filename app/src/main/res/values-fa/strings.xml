@@ -37,4 +37,10 @@
 
     <string name="Language">انتخاب زبان 🌍:</string>
 
+    <string name="id"> ردیف</string>
+
+    <string name="tname">نام </string>
+
+    <string name="score"> نمره</string>
+
 </resources>

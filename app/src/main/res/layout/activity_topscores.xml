@@ -17,8 +17,7 @@
             android:layout_height="150dp"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:background="@drawable/header_background"
-            android:layout_alignParentTop="true">
+            android:background="@drawable/header_background">
 
             <!-- Hamburger Button -->
             <com.google.android.material.button.MaterialButton
@@ -48,73 +47,93 @@
                 android:paddingStart="10dp"/>
         </LinearLayout>
 
-        <!-- Scrollable Content Section -->
-        <androidx.core.widget.NestedScrollView
+        <!-- Content Section with Table -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:fillViewport="true"
-            android:contentDescription="User Scores List">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <RelativeLayout
+            <androidx.cardview.widget.CardView
+                android:id="@+id/scoresCardView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="400dp"
                     android:orientation="vertical"
-                    android:padding="0dp"
-                    android:contentDescription="Main Layout">
+                    android:padding="16dp">
 
-                    <!-- White Card Section for Users List -->
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/scoresCardView"
+                    <!-- ثابت: عنوان ستون‌ها -->
+
+                    <!-- لیست کاربرا -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
-                        app:cardCornerRadius="16dp"
-                        app:cardElevation="8dp">
+                        android:padding="8dp"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/rounded_corner"
+                        android:orientation="horizontal">
 
-                        <androidx.core.widget.NestedScrollView
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/id"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:gravity="center"
+                            android:text="@string/tname"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/score"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <ScrollView
+                        android:importantForAccessibility="no"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:fillViewport="true">
+
+                        <LinearLayout
+                            android:id="@+id/scoresContainer"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <LinearLayout
-                                android:id="@+id/scoresContainer"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="24dp"
-                                android:contentDescription="User Scores List">
-
-                                <!-- Title -->
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="350dp"
-                                    android:gravity="center"
-                                    android:text="@string/topscore"
-                                    android:textColor="#388E3C"
-                                    android:textSize="22sp"
-                                    android:textStyle="bold"
-                                    android:paddingBottom="10dp" />
-                            </LinearLayout>
-                        </androidx.core.widget.NestedScrollView>
-                    </androidx.cardview.widget.CardView>
+                            android:layout_height="400dp"
+                            android:orientation="vertical"
+                            android:divider="@android:color/darker_gray"
+                            android:showDividers="middle"
+                            android:paddingTop="8dp"/>
+                    </ScrollView>
                 </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-                <!-- Progress Bar -->
-                <ProgressBar
-                    android:id="@+id/progressBar"
-                    style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:visibility="gone" />
-
-            </RelativeLayout>
-
-        </androidx.core.widget.NestedScrollView>
+            <!-- Progress Bar -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"/>
+        </LinearLayout>
 
         <!-- Footer Section -->
         <LinearLayout
@@ -130,9 +149,8 @@
                 android:text="@string/copy"
                 android:textColor="#000000"
                 android:textSize="17sp"
-                android:padding="10dp" />
+                android:padding="10dp"/>
         </LinearLayout>
-
     </LinearLayout>
 
     <!-- Navigation Drawer -->
@@ -141,9 +159,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="end"
-        app:menu="@menu/drawer_menu"
         android:layoutDirection="rtl"
-        app:itemVerticalPadding="50dp"
-        android:backgroundTint="#526A83" />
-
+        android:backgroundTint="#526A83"
+        app:menu="@menu/drawer_menu"
+        app:itemVerticalPadding="50dp" />
 </androidx.drawerlayout.widget.DrawerLayout>
